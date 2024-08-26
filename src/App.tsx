@@ -1,9 +1,21 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Home, About, Landing } from "./pages";
+import {
+  Home,
+  About,
+  Landing,
+  Login,
+  Register,
+  Cart,
+  Checkout,
+  SingleProduct,
+  Products,
+  Error,
+} from "./pages";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -13,7 +25,20 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+
+      {
+        path: "products",
+        element: <Products />,
+      },
     ],
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "register",
+    element: <Register />,
   },
 ]);
 function App() {
