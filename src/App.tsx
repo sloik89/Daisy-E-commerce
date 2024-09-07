@@ -10,6 +10,7 @@ import {
   SingleProduct,
   Products,
   Error,
+  Orders,
 } from "./pages";
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },
