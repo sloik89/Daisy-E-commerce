@@ -9,3 +9,7 @@ export { default as SectionTitle } from "./SectionTitle";
 export { default as FeaturedProducts } from "./FeaturedProducts";
 export { default as ProductsGrid } from "./ProductsGrid";
 export { default as Loader } from "./Loader";
+export { default as Pagination } from "./Pagination";
+export { default as ProductsContainer } from "./ProductsContainer";
+export { default as Fillters } from "./Fillters";
+export { default as ProductsList } from "./ProductsList";

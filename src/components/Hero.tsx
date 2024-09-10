@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="hidden h-[24rem] lg:carousel carousel-center bg-neutral w-full rounded-box relative">
         {items.map((img, idx) => {
           const prev = idx === 0 ? 4 : idx === 1 ? 1 : idx === 2 ? 2 : 3;
-          console.log(prev);
+
           const next = idx === 0 ? 2 : idx === 1 ? 3 : idx === 2 ? 4 : 1;
           return (
             <div

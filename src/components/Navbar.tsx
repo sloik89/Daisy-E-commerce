@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 type ThemeType = "winter" | "dracula";
 const getLocalStorage = () => {
   const theme = (localStorage.getItem("theme") as ThemeType) || "winter";
-  console.log(theme);
+
   return theme;
 };
 const Navbar = () => {
