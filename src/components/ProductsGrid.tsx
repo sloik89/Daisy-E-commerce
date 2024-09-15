@@ -1,10 +1,10 @@
 import { type LoaderFunction, useLoaderData } from "react-router-dom";
-import { type Product } from "../utilis/types";
+import { type ProductsResponse } from "../utilis/types";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../utilis/formatPrice";
 
 const ProductsGrid = () => {
-  const products = useLoaderData() as Product[];
+  const { products } = useLoaderData() as ProductsResponse;
 
   return (
     <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

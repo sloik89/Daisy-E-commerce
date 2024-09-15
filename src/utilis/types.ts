@@ -18,3 +18,15 @@ export type Product = {
   __v: number;
   _id: string;
 };
+export type ProductsResponse = {
+  products: Product[];
+  meta: {
+    categories: Array<string>;
+    companies: Array<string>;
+    pagination: {
+      page: number;
+      pages: number;
+    };
+  };
+  totalProducts: number;
+};

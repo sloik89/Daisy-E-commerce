@@ -5,12 +5,11 @@ import { Loader } from "../components";
 export const loader: LoaderFunction = async ({ request }) => {
   const res = await customFetch("products?limit=10");
   console.log(res);
-  return res.data.products;
-  return null;
+  return res.data;
 };
 const Products = () => {
   const navigation = useNavigation();
-  console.log(navigation);
+
   if (navigation.state === "loading") {
     return <Loader />;
   }
