@@ -3,11 +3,13 @@ const FormInput = ({
   name,
   type,
   defaultValue,
+  size,
 }: {
   label: string;
   name: string;
   type: string;
   defaultValue?: string;
+  size?: string | undefined;
 }) => {
   return (
     <div className="form-control ">
@@ -17,7 +19,7 @@ const FormInput = ({
       <input
         type={type}
         placeholder="Type here"
-        className="input input-bordered input-primary"
+        className={`input input-bordered input-primary ${size}`}
         name={name}
       />
     </div>

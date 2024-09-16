@@ -5,7 +5,7 @@ import { type Product } from "../utilis/types";
 export const loader: LoaderFunction = async (): Promise<Product[]> => {
   const res = await customFetch("products");
   console.log(res);
-  return res.data.products;
+  return res.data;
 };
 const Landing = () => {
   return (
