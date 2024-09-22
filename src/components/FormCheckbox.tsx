@@ -1,6 +1,5 @@
 import React from "react";
 const FormCheckbox = ({ defaultValue }: { defaultValue: string }) => {
-  console.log(defaultValue);
   const [checked, setChecked] = React.useState(
     defaultValue === "on" ? true : false
   );

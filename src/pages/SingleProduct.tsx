@@ -8,6 +8,8 @@ import {
 import { type Product } from "../utilis/types";
 import { customFetch } from "../utilis/customFetch";
 import { formatPrice } from "../utilis/formatPrice";
+import { useAppDispatch } from "../hooks";
+import { addItem } from "../features/cart/cartSlice";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { id } = params;
@@ -30,11 +32,22 @@ const SingleProduct = () => {
   const product = useLoaderData() as Product;
   const loading = useNavigation().state === "loading";
   const [stateClr, setStateClr] = useState(product.colors[0]);
-  const [select, setSelect] = useState(2);
+  const [select, setSelect] = useState(1);
+  const dispatch = useAppDispatch();
   const handleAmount = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelect(Number(e.target.value));
   };
-  console.log(select);
+  console.log(product);
+  const cartProduct = {
+    cartId: product._id + stateClr,
+    productId: product._id,
+    price: product.price,
+    title: product.name,
+    image: product.image,
+    productColor: stateClr,
+    company: product.company,
+    amount: select,
+  };
   return (
     <section>
       <div className="breadcrumbs">
@@ -83,6 +96,7 @@ const SingleProduct = () => {
               onChange={handleAmount}
               className="select select-secondary select-md font-bold"
               id="amount"
+              defaultValue={select}
             >
               {Array.from({ length: product.inventory }, (_, idx) => {
                 const currentIdx = idx + 1;
@@ -95,7 +109,10 @@ const SingleProduct = () => {
             </select>
           </div>
           <div>
-            <button className="btn btn-primary mt-3 capitalize">
+            <button
+              onClick={() => dispatch(addItem(cartProduct))}
+              className="btn btn-primary mt-3 capitalize"
+            >
               add to bag
             </button>
           </div>
