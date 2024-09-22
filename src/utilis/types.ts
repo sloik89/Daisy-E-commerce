@@ -29,4 +29,12 @@ export type ProductsResponse = {
     };
   };
   totalProducts: number;
+  params: {
+    search: string;
+    order: string;
+    company: string;
+    category: string;
+    shipping: string;
+    price: string;
+  };
 };

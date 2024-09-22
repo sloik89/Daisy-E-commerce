@@ -21,6 +21,7 @@ const FormInput = ({
         placeholder="Type here"
         className={`input input-bordered input-primary ${size}`}
         name={name}
+        defaultValue={defaultValue}
       />
     </div>
   );

@@ -15,3 +15,4 @@ export { default as Fillters } from "./Fillters";
 export { default as ProductsList } from "./ProductsList";
 export { default as FormSelect } from "./FormSelect";
 export { default as FormRange } from "./FormRange";
+export { default as FormCheckbox } from "./FormCheckbox";
