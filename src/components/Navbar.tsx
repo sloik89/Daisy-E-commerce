@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { NavLinks } from "../components";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import { useAppDispatch } from "../hooks";
+
 // const themes = {
 //   winter: "winter",
 //   dracula: "dracula",

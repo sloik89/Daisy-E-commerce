@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-type CartItem = {
+export type CartItem = {
   cartId: string;
   productId: string;
   price: number;
@@ -66,10 +66,15 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.calculateTotals(state);
       toast.error("item removed from cart");
     },
-    editItem: (state, action: PayloadAction<CartItem>) => {
+    editItem: (
+      state,
+      action: PayloadAction<{ amount: number; cartId: string }>
+    ) => {
       const { cartId, amount } = action.payload;
       const product = state.cartItems.find((i) => i.cartId === cartId);
       if (!product) return;
+      console.log(amount, product.amount);
+      console.log(amount - product.amount);
       state.numItemsInCart += amount - product.amount;
       state.cartTotal += product.price * (amount - product.amount);
       product.amount = amount;
