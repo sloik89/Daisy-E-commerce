@@ -48,3 +48,8 @@ const cartSlice = createSlice({
   initialState: getCartFromLocal(),
   reducers: {}
 ```
+
+# Test user credential
+
+test1@gmail.com
+secret

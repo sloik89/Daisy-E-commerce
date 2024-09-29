@@ -1,7 +1,7 @@
 import { useNavigation } from "react-router-dom";
 const SubmitBtn = ({ title }: { title: string }) => {
   const navigation = useNavigation();
-  console.log(navigation);
+
   const isSubmiting = navigation.state === "submitting";
   return (
     <button

@@ -3,30 +3,18 @@ import React, { useState, useEffect } from "react";
 import { NavLinks } from "../components";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-import { useAppDispatch } from "../hooks";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { toogleTheme } from "../features/user/userSlice";
 
-// const themes = {
-//   winter: "winter",
-//   dracula: "dracula",
-// };
-type ThemeType = "winter" | "dracula";
-const getLocalStorage = () => {
-  const theme = (localStorage.getItem("theme") as ThemeType) || "winter";
-
-  return theme;
-};
 const Navbar = () => {
-  const [theme, setTheme] = useState<ThemeType>(getLocalStorage());
+  // const [theme, setTheme] = useState<ThemeType>(getLocalStorage());
+  const theme = useAppSelector((state) => state.userState.theme);
+
+  const dispatch = useAppDispatch();
   const handleTheme = () => {
-    const newTheme = theme === "winter" ? "dracula" : "winter";
-    console.log(newTheme);
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    dispatch(toogleTheme());
   };
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element">

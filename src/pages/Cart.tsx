@@ -3,7 +3,8 @@ import { useAppSelector } from "../hooks";
 import { CartItems, CartTotals, SectionTitle } from "../components";
 const Cart = () => {
   // temp
-  const user = null;
+  const user = useAppSelector((state) => state.userState.user);
+
   const { numItemsInCart } = useAppSelector((state) => state.cartState);
   if (numItemsInCart === 0) {
     return <SectionTitle title="Your cart is empty" />;
