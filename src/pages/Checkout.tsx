@@ -24,8 +24,8 @@ const Checkout = () => {
   return (
     <>
       <SectionTitle title="place your order" />
-      Checkout
-      <div>
+
+      <div className="grid gap-6 md:grid-cols-2">
         <CheckoutForm />
         <CartTotals />
       </div>

@@ -38,3 +38,33 @@ export type ProductsResponse = {
     price: string;
   };
 };
+export type CartItem = {
+  amount: number;
+  image: string;
+  price: number;
+  title: string;
+};
+export type OrderType = {
+  address: string;
+  cartItems: CartItem[];
+  clientSecret: string;
+  createdAt: string;
+  numItemsInCart: number;
+  shippingFee: number;
+  tax: number;
+  total: number;
+  updatedAt: string;
+  user: string;
+  userName: string;
+  _id: string;
+};
+export type OrderResponse = {
+  meta: {
+    pagination: {
+      page: number;
+      pages: number;
+      total: number;
+    };
+  };
+  order: OrderType[];
+};

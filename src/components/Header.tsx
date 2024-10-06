@@ -7,7 +7,7 @@ const Header = () => {
   const user = useAppSelector((state) => state.userState.user);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  console.log(user);
+
   const handleLogout = () => {
     navigate("/");
     dispatch(clearCart());

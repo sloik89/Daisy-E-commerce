@@ -20,3 +20,4 @@ export { default as CartItems } from "./CartItems";
 export { default as CartTotals } from "./CartTotals";
 export { default as CartItem } from "./CartItem";
 export { default as CheckoutForm } from "./CheckoutForm";
+export { default as OrdersList } from "./OrdersList";
