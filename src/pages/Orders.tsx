@@ -4,7 +4,7 @@ import { customFetch } from "../utilis/customFetch";
 import { toast } from "react-toastify";
 import { type OrderResponse } from "../utilis/types";
 import { SectionTitle, Pagination, OrdersList } from "../components";
-import day from "dayjs";
+
 export const loader =
   (store: ReduxStore): LoaderFunction =>
   async ({ request }): Promise<OrderResponse | null> => {
