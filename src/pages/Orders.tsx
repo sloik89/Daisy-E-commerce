@@ -1,14 +1,14 @@
-import { ReduxStore } from "../store";
 import { LoaderFunction, redirect, useLoaderData } from "react-router-dom";
-import { customFetch } from "../utilis/customFetch";
 import { toast } from "react-toastify";
+import { ComplexPagination, OrdersList, SectionTitle } from "../components";
+import { ReduxStore } from "../store";
+import { customFetch } from "../utilis/customFetch";
 import { type OrderResponse } from "../utilis/types";
-import { SectionTitle, Pagination, OrdersList } from "../components";
 
 export const loader =
   (store: ReduxStore): LoaderFunction =>
   async ({ request }): Promise<OrderResponse | null> => {
-    console.log("urders");
+    
     const token = store.getState().userState.user?.token;
     const user = store.getState().userState.user;
     const params = Object.fromEntries([
@@ -26,7 +26,7 @@ export const loader =
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(res);
+      
       return res.data;
     } catch (err) {
       console.log(err);
@@ -41,8 +41,9 @@ const Orders = () => {
   }
   return (
     <div>
+
       <OrdersList />
-      <Pagination />
+      <ComplexPagination />
     </div>
   );
 };
