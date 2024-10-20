@@ -1,13 +1,13 @@
-import { redirect, Form, ActionFunction } from "react-router-dom";
+import { QueryClient } from "@tanstack/react-query";
+import { ActionFunction, Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-
-import { customFetch } from "../utilis/customFetch";
-import { type ReduxStore } from "../store";
 import { FormInput, SubmitBtn } from "../components";
 import { clearCart } from "../features/cart/cartSlice";
 import { useAppSelector } from "../hooks";
+import { type ReduxStore } from "../store";
+import { customFetch } from "../utilis/customFetch";
 export const action =
-  (store: ReduxStore): ActionFunction =>
+  (store: ReduxStore,queryClient:QueryClient): ActionFunction =>
   async ({ request }) => {
     const formData = await request.formData();
 
@@ -40,6 +40,7 @@ export const action =
           },
         }
       );
+      queryClient.removeQueries()
       console.log(res);
       toast.success("Order placed");
       store.dispatch(clearCart());

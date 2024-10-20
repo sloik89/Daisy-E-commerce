@@ -1,17 +1,19 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { logoutUser } from "../features/user/userSlice";
 import { clearCart } from "../features/cart/cartSlice";
+import { logoutUser } from "../features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "../hooks";
 
 const Header = () => {
   const user = useAppSelector((state) => state.userState.user);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
+const queryClient = useQueryClient()
   const handleLogout = () => {
     navigate("/");
     dispatch(clearCart());
     dispatch(logoutUser());
+    queryClient.removeQueries()
   };
   return (
     <header className="bg-neutral text-neutral-content py-2">

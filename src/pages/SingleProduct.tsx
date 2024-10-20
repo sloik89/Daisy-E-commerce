@@ -1,22 +1,27 @@
+import { QueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 import {
-  type LoaderFunction,
-  useNavigation,
-  useLoaderData,
   Link,
+  type LoaderFunction,
+  useLoaderData,
+  useNavigation,
 } from "react-router-dom";
-import { type Product } from "../utilis/types";
+import { addItem } from "../features/cart/cartSlice";
+import { useAppDispatch } from "../hooks";
 import { customFetch } from "../utilis/customFetch";
 import { formatPrice } from "../utilis/formatPrice";
-import { useAppDispatch } from "../hooks";
-import { addItem } from "../features/cart/cartSlice";
-
-export const loader: LoaderFunction = async ({ params }) => {
+import { type Product } from "../utilis/types";
+const singleProductQuery = (id:string | undefined) => {
+  return {
+    queryKey:[`singleProduct${id}`],
+    queryFn:() =>customFetch(`products/${id}`)
+  }
+}
+export const loader =(queryClient:QueryClient): LoaderFunction => async ({ params }) => {
   const { id } = params;
-  const res = await customFetch(`products/${id}`);
+  const res = await queryClient.ensureQueryData(singleProductQuery(id))
   return res.data;
-  console.log(res);
-  return null;
+  
 };
 const createOption = (optionNumber: number) => {
   console.log(optionNumber);

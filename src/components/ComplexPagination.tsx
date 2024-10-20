@@ -13,7 +13,7 @@ const ComplexPagination = () => {
         const searchParams = new URLSearchParams(search);
         searchParams.set("page", pageNumber);
         navigate(`${pathname}?${searchParams.toString()}`);
-        console.log(searchParams.toString());
+       
       };
       const addPageButton = ({pageNumber,activeClass}:{pageNumber:number;activeClass:boolean}):JSX.Element=>{
 

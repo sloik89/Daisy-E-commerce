@@ -18,6 +18,14 @@ export type Product = {
   __v: number;
   _id: string;
 };
+export type Params = {
+  search:string;
+  order:string;
+  company:string;
+  category:string;
+  shipping:string;
+  price:string
+}
 export type ProductsResponse = {
   products: Product[];
   meta: {
@@ -29,14 +37,7 @@ export type ProductsResponse = {
     };
   };
   totalProducts: number;
-  params: {
-    search: string;
-    order: string;
-    company: string;
-    category: string;
-    shipping: string;
-    price: string;
-  };
+  params: Params
 };
 export type CartItem = {
   amount: number;

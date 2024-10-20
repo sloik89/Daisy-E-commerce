@@ -1,10 +1,10 @@
-import { CartTotals, SectionTitle, CheckoutForm } from "../components";
-import { useAppSelector } from "../hooks";
-import { LoaderFunction, redirect } from "react-router-dom";
 import { Store } from "@reduxjs/toolkit";
 
-import { ReduxStore } from "../store";
+import { LoaderFunction, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import { CartTotals, CheckoutForm, SectionTitle } from "../components";
+import { useAppSelector } from "../hooks";
+import { ReduxStore } from "../store";
 export const loader =
   (store: ReduxStore): LoaderFunction =>
   async ({ request }) => {
